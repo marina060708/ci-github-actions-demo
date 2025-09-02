@@ -1,0 +1,16 @@
+name: Nightly Scheduled Build
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at 00:00 UTC
+  workflow_dispatch:      # Optional: lets you run it manually
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Log success message
+        run: echo "Scheduled build completed successfully!"
